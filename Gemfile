@@ -4,10 +4,14 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+group :development, :test do
 gem 'sqlite3'
+end
+group :production do
 gem 'pg'
-
+gem 'rails_12factor'
+gem 'thin'
+end
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
@@ -28,6 +32,8 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+ruby "2.0.0"
 
 # Use unicorn as the app server
 # gem 'unicorn'
