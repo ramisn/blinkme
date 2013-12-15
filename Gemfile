@@ -10,6 +10,7 @@ end
 group :production do
 gem 'pg'
 gem 'rails_12factor'
+gem 'thin'
 end
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
