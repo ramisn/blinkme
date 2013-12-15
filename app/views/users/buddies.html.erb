@@ -1,17 +1,18 @@
 <% if current_user %>
 <div class="span8">
-<div id="createRibbit" class="panel right">
+<div id="createRibbit" class="panel left">
     <h1>Bling Here</h1>
     <p>
     <%= form_for @ribbit do |f| %>
-        <%= f.text_area :content, class: 'ribbitText' %>
-        <div class="actions", align="center"><%= f.submit "Bling!", class: "btn btn-large btn-primary" %></div>
+        <%= f.text_area :content, size: "40x10", class: 'ribbitText' %>
+        <div class="actions"><%= f.submit "Bling!", class: "btn btn-large btn-primary" %></div>
     <% end %>
     </p>
 </div>
 </div>
 <% end %>
-<div class="panel left">
+
+<div class="panel right">
     <h1>Buddies' Status</h1>
     <% @ribbits.each do |ribbit| %>
         <div class="ribbitWrapper">
@@ -25,3 +26,4 @@
         </div>
     <% end %>
 </div>
+
