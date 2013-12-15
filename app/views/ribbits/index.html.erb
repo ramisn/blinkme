@@ -1,12 +1,16 @@
 <% if current_user %>
-<div id="createRibbit" class="panel right">
-    <h1>Bling Here</h1>
-    <p>
+<div class="span8">
+<div id="createRibbit" class="panel panel-default">
+    <div class="panel-heading">
+    <h1 class="panel-title">Bling Here</h1>
+    </div>
+    <div class="panel-body">
     <%= form_for @ribbit do |f| %>
         <%= f.text_area :content, class: 'ribbitText' %>
-        <div class="actions", align="center"><%= f.submit "Bling!", class: "btn btn-large btn-primary" %></div>
+        <div class="actions"><%= f.submit "Bling!", class: "btn btn-large btn-primary" %></div>
     <% end %>
-    </p>
+    </div>
+</div>
 </div>
 <% end %>
 <div class="panel left">
