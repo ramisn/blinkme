@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet/less" href="/style.less">
+	<script src="/less.js"></script>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+    <title><%= content_for?(:title) ? yield(:title) : "Bling Me" %></title>
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<img src="/gfx/logo.png">
+			
+      <% if current_user %> 
+        <%= link_to "Buddies Bling's", buddies_path %> |
+        <%= link_to "Public Profiles", users_path %> |
+        <%= link_to "My Profile", current_user %> |
+        <%= link_to "Public Bling's", ribbits_path %> |
+        <%= link_to "Log Out", logout_path %>
+      <% else %>
+          <%= form_tag sessions_path do %>
+          <%= text_field_tag :username, nil, placeholder: "Username" %>
+          <%= password_field_tag :password, nil,  placeholder: "Password" %>
+          <%= submit_tag "Log In" %>
+        <% end %>
+      <% end %>
+		</div>
+	</header>
+	<div id="content">
+    <div class="wrapper">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "flash #{name}" %>
+      <% end %>
+      <%= yield %>
+    </div>
+	</div>
+	<footer>
+        <p>&copy; Bling Me Company 2013</p>
+  </footer>
+</body>
+</html>
