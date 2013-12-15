@@ -4,7 +4,7 @@
     <h1>Bling Here</h1>
     <p>
     <%= form_for @ribbit do |f| %>
-        <%= f.text_area :content, size: "40x10", class: 'ribbitText' %>
+        <%= f.text_area :content, class: 'ribbitText' %>
         <div class="actions"><%= f.submit "Bling!", class: "btn btn-large btn-primary" %></div>
     <% end %>
     </p>
